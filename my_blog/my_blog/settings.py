@@ -125,3 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEMPLATE_DIRS = (
+    # 设置templates的位置(根目录下)
+    os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+    )
+
+

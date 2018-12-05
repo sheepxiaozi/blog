@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load custom_markdown %}
+
+{% block content %}
+    <style type="text/css">
+        p{
+        color:red;
+        }
+        #more{
+        color:blue;
+        }
+    </style>
+<div>
+    <p id="name"> 姓名： sheep筱孜 </p>
+    <p id="gender"> 性别： 男 </p>
+    <p id="school"> 学校： 清华大学 </p>
+    <p id="profession"> 专业： 计算机科学与技术 </p>
+    <p id="phone"> 想了解更多请拨打： 8008208820 </p>
+    <p id="more"> ...... </p>
+</div>
+{% endblock %}
+
+

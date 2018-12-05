@@ -1,23 +1,43 @@
-{% extends "base.html" %}
-{% load custom_markdown %}
-
-{% block content %}
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
     <style type="text/css">
+        h1,pre,p,#more{
+            text-align: center;
+        }
         p{
-        color:red;
+            color: red;
         }
         #more{
-        color:blue;
+            color: blue;
         }
     </style>
-<div>
-    <p id="name"> 姓名： sheep筱孜 </p>
-    <p id="gender"> 性别： 男 </p>
-    <p id="school"> 学校： 清华大学 </p>
-    <p id="profession"> 专业： 计算机科学与技术 </p>
-    <p id="phone"> 想了解更多请拨打： 8008208820 </p>
-    <p id="more"> ...... </p>
-</div>
-{% endblock %}
+<head>
+    <title>sheep筱孜</title>
+</head>
+<body bgcolor="#d3d3d3" lang=ZH-CN link=blue vlink=blue style='tab-interval:21.0pt'topmargin=4>
+    <h1>sheep筱孜</h1>
+    <hr size=6 color=orange width=60% align="center">
+    <pre>Welcome to my blog website</pre>
+    <br>
+    <br>
+
+    <div>
+        <p id="name"> 姓名： sheep筱孜 </p>
+        <p id="gender"> 性别： 男 </p>
+        <p id="school"> 学校： 清华大学 </p>
+        <p id="profession"> 专业： 计算机科学与技术 </p>
+        <p id="more"> ...... </p>
+    </div>
+
+    <br>
+    <br>
+    <p><a class="button-success pure-button" href="/index/">返回博客主页</a></p>
+    <table bgcolor="#0066FF" width="100%" >
+        <th >想了解更多请拨打&nbsp;：8008208820<br></th>
+    </table>
+</body>
+</html>
+---------------------
+Welcome to visit again
 
 

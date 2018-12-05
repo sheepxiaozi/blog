@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect
 from article.models import Article
 from django.http import Http404
@@ -5,8 +6,17 @@ from django.contrib.syndication.views import Feed
 
 
 def index(request):
-    post_list = Article.objects.all()
-    return render(request, "index.html", {"post_list": post_list})
+    posts = Article.objects.all()
+    # 每页显示两个
+    paginator = Paginator(posts, 3)
+    page = request.GET.get('page')
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        post_list = paginator.page(1)
+    except EmptyPage:
+        post_list = paginator.page(paginator.num_pages)
+    return render(request, 'index.html', {'post_list': post_list})
 
 
 def detail(request, pk):

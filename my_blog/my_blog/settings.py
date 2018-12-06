@@ -128,7 +128,7 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
     # 设置templates的位置(根目录下)
-    os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+    os.path.join(BASE_DIR, 'templates'),
     )
 
 

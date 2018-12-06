@@ -19,15 +19,52 @@
                     </p>
                 </div>
     </section>
-    <form id="jsStayForm">
-        <div>
-            <label>评论:</label>
-            <textarea name="content" id="js-content" rows="5" placeholder="不超过300个字"></textarea>
-        </div>
 
-        <p></p>
-        <button type="button" id="jsStayBtn" value="发表">发表</button>
-    </form>
+</div>
+
+<div class="comments">
+    <p>评论列表</p>
+    <ul class="comment_list list-group">
+
+        {# 评论内容 #}
+        {% for comment in comment_list %}
+            <li class="list-group-item">
+
+                <div>
+                    <a href=""># {{ forloop.counter }}楼</a> &nbsp;&nbsp;
+                    <span>{{ comment.create_time|date:'Y-m-d H:i' }}</span>
+                    <a class="pull-right reply_btn" username="{{ comment.user.username }}"
+                       comment_pk="{{ comment.pk }}">回复</a>&nbsp;&nbsp;
+                    <a href="">评论人:{{ comment.user.username }}</a>&nbsp;&nbsp;
+                </div>
+
+                {# 显示子评论 #}
+                {% if comment.parent_comment %}
+                    {# 如果是子评论，那么现实父评论内容 #}
+                    <div class="pid_info well">
+                        <p>
+                            {{ comment.parent_comment.user.username }} : {{ comment.parent_comment.content }}
+                        </p>
+                    </div>
+
+                {% endif %}
+
+                <div class="comment_con" style="margin-top: 10px">
+                    <p>{{ comment.content }}</p>
+                </div>
+            </li>
+        {% endfor %}
+
+    </ul>
+    <hr>
+    <p>昵称：<input type="text" id="tbCommentAuthor" class="author" disabled="disabled" size="10"
+                 value="{{ request.user.username }}"></p>
+    <p>评论内容</p>
+    <textarea name="" id="comment_content" cols="40" rows="10"></textarea>
+    <p>
+        <button class="btn btn-default comment_btn">提交评论</button>
+    </p>
+
 </div>
 
 {% endblock %}
